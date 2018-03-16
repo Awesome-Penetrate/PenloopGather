@@ -1,0 +1,4 @@
+/home/payloads/download/clion-2017.3.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -G "CodeBlocks - Unix Makefiles" /home/payloads/CLionProjects/PenloopGather
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/payloads/CLionProjects/PenloopGather/cmake-build-debug
