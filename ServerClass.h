@@ -14,15 +14,15 @@
 #include <vector>
 #include <fstream>
 #include <cstring>
-#include "Mysql.h"
+#include "MysqlClass.h"
 #include "dns.h"
 #include <cctype>
 #include "Mystr.h"
 #include "MyportScan.h"
 #include "http.h"
-class Server {
+class ServerClass {
 public:
-    Server();
+    ServerClass();
     bool startServer();
 private:
     static void _signalHandler(int sig);
@@ -43,7 +43,7 @@ private:
     int _jobID;
     int _domainParentID;
     bool _debug;
-    Mysql _sql;
+    MysqlClass _sql;
     socklen_t _clientSize;
     sockaddr_in _serverAddr;
     sockaddr_in _clientAddr;

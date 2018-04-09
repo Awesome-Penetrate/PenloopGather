@@ -177,28 +177,28 @@ CMakeFiles/PenloopGather.dir/MyportScan.cpp.o.provides: CMakeFiles/PenloopGather
 CMakeFiles/PenloopGather.dir/MyportScan.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/MyportScan.cpp.o
 
 
-CMakeFiles/PenloopGather.dir/Mysql.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
-CMakeFiles/PenloopGather.dir/Mysql.cpp.o: ../Mysql.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PenloopGather.dir/Mysql.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PenloopGather.dir/Mysql.cpp.o -c /home/payloads/CLionProjects/PenloopGather/Mysql.cpp
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o: ../MysqlClass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o -c /home/payloads/CLionProjects/PenloopGather/MysqlClass.cpp
 
-CMakeFiles/PenloopGather.dir/Mysql.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PenloopGather.dir/Mysql.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/payloads/CLionProjects/PenloopGather/Mysql.cpp > CMakeFiles/PenloopGather.dir/Mysql.cpp.i
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PenloopGather.dir/MysqlClass.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/payloads/CLionProjects/PenloopGather/MysqlClass.cpp > CMakeFiles/PenloopGather.dir/MysqlClass.cpp.i
 
-CMakeFiles/PenloopGather.dir/Mysql.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PenloopGather.dir/Mysql.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/payloads/CLionProjects/PenloopGather/Mysql.cpp -o CMakeFiles/PenloopGather.dir/Mysql.cpp.s
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PenloopGather.dir/MysqlClass.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/payloads/CLionProjects/PenloopGather/MysqlClass.cpp -o CMakeFiles/PenloopGather.dir/MysqlClass.cpp.s
 
-CMakeFiles/PenloopGather.dir/Mysql.cpp.o.requires:
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.requires:
 
-.PHONY : CMakeFiles/PenloopGather.dir/Mysql.cpp.o.requires
+.PHONY : CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.requires
 
-CMakeFiles/PenloopGather.dir/Mysql.cpp.o.provides: CMakeFiles/PenloopGather.dir/Mysql.cpp.o.requires
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Mysql.cpp.o.provides.build
-.PHONY : CMakeFiles/PenloopGather.dir/Mysql.cpp.o.provides
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.provides: CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.requires
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.provides.build
+.PHONY : CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.provides
 
-CMakeFiles/PenloopGather.dir/Mysql.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/Mysql.cpp.o
+CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o
 
 
 CMakeFiles/PenloopGather.dir/Server.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
@@ -256,7 +256,7 @@ PenloopGather_OBJECTS = \
 "CMakeFiles/PenloopGather.dir/dns.cpp.o" \
 "CMakeFiles/PenloopGather.dir/Mythread.cpp.o" \
 "CMakeFiles/PenloopGather.dir/MyportScan.cpp.o" \
-"CMakeFiles/PenloopGather.dir/Mysql.cpp.o" \
+"CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o" \
 "CMakeFiles/PenloopGather.dir/Server.cpp.o" \
 "CMakeFiles/PenloopGather.dir/Mystr.cpp.o"
 
@@ -268,7 +268,7 @@ PenloopGather: CMakeFiles/PenloopGather.dir/http.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/dns.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/Mythread.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/MyportScan.cpp.o
-PenloopGather: CMakeFiles/PenloopGather.dir/Mysql.cpp.o
+PenloopGather: CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/Server.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/Mystr.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/build.make
@@ -286,7 +286,7 @@ CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/http.cpp.o.r
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/dns.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/Mythread.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/MyportScan.cpp.o.requires
-CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/Mysql.cpp.o.requires
+CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/Server.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/Mystr.cpp.o.requires
 

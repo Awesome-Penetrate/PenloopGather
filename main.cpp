@@ -1,6 +1,8 @@
-#include "Server.h"
+#include "ServerClass.h"
 
 int main(int argc,char * argv[]) {
-    Server MyServer;
+    ServerClass MyServer;
     MyServer.startServer();
+
+
 }

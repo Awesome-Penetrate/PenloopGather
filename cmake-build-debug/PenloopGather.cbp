@@ -93,10 +93,10 @@
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/MyportScan.h">
 			<Option target="PenloopGather"/>
 		</Unit>
-		<Unit filename="/home/payloads/CLionProjects/PenloopGather/Mysql.cpp">
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/MysqlClass.cpp">
 			<Option target="PenloopGather"/>
 		</Unit>
-		<Unit filename="/home/payloads/CLionProjects/PenloopGather/Mysql.h">
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/MysqlClass.h">
 			<Option target="PenloopGather"/>
 		</Unit>
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/Mystr.cpp">

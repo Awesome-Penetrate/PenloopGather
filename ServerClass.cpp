@@ -2,9 +2,9 @@
 // Created by payloads on 18-3-6.
 //
 
-#include "Server.h"
+#include "ServerClass.h"
 
-Server::Server() {
+ServerClass::ServerClass() {
     memset(_fromClientBUFF,0,0);
     _clientData = NULL;
     _loadConfig("./pls.conf");
@@ -13,23 +13,23 @@ Server::Server() {
 
 }
 
-bool Server::_setListenPort(unsigned short int port) {
+bool ServerClass::_setListenPort(unsigned short int port) {
     _listenPort = port;
 }
 
-bool Server::_setClientNum(int num) {
+bool ServerClass::_setClientNum(int num) {
     _clientMaxNum = num;
 }
 
 
-bool Server::startServer() {
+bool ServerClass::startServer() {
     signal(SIGCHLD, _signalHandler);
     pid_t pid=fork(); // 创建子进程
 
     if(pid==0){  // 子进程处理开始
 
         // 创建SOCKET描述符
-        _serverSock = socket(AF_INET,SOCK_STREAM,0);
+        _serverSock = socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP);
 
         // 设置超时
         struct linger timeWit;
@@ -64,15 +64,14 @@ bool Server::startServer() {
                     _loadSubDomain();   // 加载字典
 
                     recv(_clientSock,_fromClientBUFF,500,0); // 接收数据
+
                     _clientData = (Pls * )_fromClientBUFF;   // 格式化
 
                     std::cout << "[*]Username :" << _clientData->username << std::endl;
 
                     _authUser();  // 验证权限
                     _createJob(); // 创建任务
-
                     _runDnsThread(); // 执行任务
-
                     //
                     for (auto it = _dnsResult.begin(); it != _dnsResult.end(); it++) {
                         std::cout <<"[" << std::get<0>(*it) << "] "<< std::get<1>(*it) << " => "<< std::get<2>(*it) << std::endl;
@@ -94,7 +93,7 @@ bool Server::startServer() {
  * 信号处理，用于收割僵尸进程
  * @param sig
  */
-void Server::_signalHandler(int sig) {
+void ServerClass::_signalHandler(int sig) {
     pid_t pid;
     pid=wait(NULL);
 }
@@ -103,7 +102,7 @@ void Server::_signalHandler(int sig) {
  * 多线程运行
  * @return
  */
-bool Server::_runDnsThread() {
+bool ServerClass::_runDnsThread() {
     dns dnsRequest;
     dnsRequest.setDnsServer(_Config.dnsServer);
     dnsRequest.setHostname(_clientData->target);
@@ -116,6 +115,7 @@ bool Server::_runDnsThread() {
 
         auto DomainInfo = _getDomainInfo(std::get<1>(*it),std::get<2>(*it));
         //CALL sp_add_domain ( "hao123.com", "80,55,44", "header", "title", "80.12.14.14", 0, 1 );--
+        /*
             std::string callFunctionQuery = "CALL sp_add_domain('";
             callFunctionQuery.append(std::get<1>(*it)); // host
             callFunctionQuery.append("','");
@@ -133,6 +133,8 @@ bool Server::_runDnsThread() {
             callFunctionQuery.append("';");
 
             std::cout << callFunctionQuery << std::endl;
+        */
+
     }
 }
 
@@ -141,7 +143,7 @@ bool Server::_runDnsThread() {
  * @param fileName
  * @return
  */
-bool Server::_loadConfig(std::string fileName) {
+bool ServerClass::_loadConfig(std::string fileName) {
     _Config.threads = atoi(_readConfig(fileName,"threads").c_str());
     _Config.dbName  = _readConfig(fileName,"dbName");
     _Config.dbUser  = _readConfig(fileName,"dbUser");
@@ -160,7 +162,7 @@ bool Server::_loadConfig(std::string fileName) {
  * @param key
  * @return
  */
-std::string Server::_readConfig(std::string fileName,std::string key) {
+std::string ServerClass::_readConfig(std::string fileName,std::string key) {
     std::string tmp;
     std::fstream IO(fileName);
     if(!IO.is_open()){
@@ -193,10 +195,9 @@ std::string Server::_readConfig(std::string fileName,std::string key) {
  * 加载子域名字典
  * @return
  */
-bool Server::_loadSubDomain() {
-    _getMySQL();
+bool ServerClass::_loadSubDomain() {
     MYSQL_ROW mysqlRow;
-    MYSQL_RES * Res = _sql.Select("select subdomain from pls_subdomain");
+    MYSQL_RES * Res = _sql.select("select subdomain from pls_subdomain");
     while ((mysqlRow = mysql_fetch_row(Res)) != NULL)
     {
         for(int i=0;i < mysql_num_fields(Res);i++){
@@ -204,14 +205,13 @@ bool Server::_loadSubDomain() {
         }
     }
     mysql_free_result(Res);
-    _sql.close();
 }
 
 /**
  * 验证是否有派发任务权限
  * @return
  */
-bool Server::_authUser() {
+bool ServerClass::_authUser() {
     _getMySQL();
     // std::cout << strlen(_clientData->authcode) << std::endl;
     if(strlen(_clientData->authcode) != 32){
@@ -225,7 +225,7 @@ bool Server::_authUser() {
     std::string sql = "SELECT if(pls_authcode='";
     sql.append(_clientData->authcode);
     sql.append("',1,2) as auth FROM pls_user");
-    MYSQL_RES * Res = _sql.Select(sql);
+    MYSQL_RES * Res = _sql.select(sql);
     mysqlRow = mysql_fetch_row(Res);
     if(mysqlRow[0] == "2"){
         _sendFail("AUTH CODE ERROR");
@@ -239,7 +239,7 @@ bool Server::_authUser() {
  * @param failStr
  * @return
  */
-bool Server::_sendFail(std::string failStr) {
+bool ServerClass::_sendFail(std::string failStr) {
     _clientData->rq = 0;
     strcpy(_clientData->comment,failStr.c_str());
     strcpy(_fromClientBUFF,(char *)_clientData);
@@ -249,11 +249,9 @@ bool Server::_sendFail(std::string failStr) {
     exit(0);
 }
 
+// 创建扫描任务
+int ServerClass::_createJob() {
 
-int Server::_createJob() {
-    // 创建扫描任务
-
-    _getMySQL(); // 链接数据库
 
     // 设置插入字段
     std::vector<std::string> columns{
@@ -271,18 +269,16 @@ int Server::_createJob() {
     data.emplace_back(_clientData->target);
 
     //插入任务
-    _jobID = (int)_sql.Insert("pls_jobs",columns,data);
+    _jobID = (int)_sql.insert("pls_jobs",columns,data);
     std::cout << "[*]CreateJob ID is " << _jobID << std::endl;
-    //关闭数据库链接
-    _sql.close();
 }
 
 /* 链接数据库
  *
  * */
-void Server::_getMySQL() {
+void ServerClass::_getMySQL() {
     if(_Config.sqlDebug == "true"){
-        _sql.mysql_debug = true;
+        _sql.debug = true;
     }
     if(_sql.connect(_Config.dbHost,_Config.dbUser,_Config.dbPass,_Config.dbName,_Config.dbPort)){
         std::cout << "[*]Connect to MySQL Success ..." << std::endl;
@@ -293,8 +289,7 @@ void Server::_getMySQL() {
 }
 
 
-void Server::_saveResult() {
-    _getMySQL(); // 链接数据库
+void ServerClass::_saveResult() {
     std::vector<std::string> columns{
             "pls_jobs_name",
             "pls_jobs_des",
@@ -307,11 +302,8 @@ void Server::_saveResult() {
         std::cout <<"[" << std::get<0>(*it) << "] "<< std::get<1>(*it) << " => "<< std::get<2>(*it) << std::endl;
         data.emplace_back(std::get<1>(*it));
         data.emplace_back(std::get<2>(*it));
-
     }
 
-
-    _sql.close();
 }
 
     /**
@@ -320,7 +312,7 @@ void Server::_saveResult() {
      * std::string HTTP相应头
      * std::string HTTP标题
      */
-std::tuple<std::string,std::string,std::string,std::string> Server::_getDomainInfo(std::string host,std::string ip) {
+std::tuple<std::string,std::string,std::string,std::string> ServerClass::_getDomainInfo(std::string host,std::string ip) {
 
     std::string _title,_responseHeader,_openPorts;
 
@@ -346,8 +338,6 @@ std::tuple<std::string,std::string,std::string,std::string> Server::_getDomainIn
         std::cout <<"[*]Title : " <<  HTTP_REQ.getTitle() << std::endl;
         _title = HTTP_REQ.getTitle();
         _responseHeader = HTTP_REQ.getResponse();
-
-
         _openPorts.append(std::to_string(_openList[i]));
         _openPorts.append(",");
         std::cout << HTTP_REQ.getResponse() << std::endl;
@@ -357,6 +347,5 @@ std::tuple<std::string,std::string,std::string,std::string> Server::_getDomainIn
     delete(PortScan);
     std::cout << "2string" << std::endl;
     auto _Result = std::make_tuple(host,_openPorts,_responseHeader,_title);
-
     return _Result;
 }

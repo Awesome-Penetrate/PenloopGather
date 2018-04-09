@@ -150,32 +150,32 @@ MyportScan.cpp.s:
 	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/MyportScan.cpp.s
 .PHONY : MyportScan.cpp.s
 
-Mysql.o: Mysql.cpp.o
+MysqlClass.o: MysqlClass.cpp.o
 
-.PHONY : Mysql.o
+.PHONY : MysqlClass.o
 
 # target to build an object file
-Mysql.cpp.o:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Mysql.cpp.o
-.PHONY : Mysql.cpp.o
+MysqlClass.cpp.o:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o
+.PHONY : MysqlClass.cpp.o
 
-Mysql.i: Mysql.cpp.i
+MysqlClass.i: MysqlClass.cpp.i
 
-.PHONY : Mysql.i
+.PHONY : MysqlClass.i
 
 # target to preprocess a source file
-Mysql.cpp.i:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Mysql.cpp.i
-.PHONY : Mysql.cpp.i
+MysqlClass.cpp.i:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/MysqlClass.cpp.i
+.PHONY : MysqlClass.cpp.i
 
-Mysql.s: Mysql.cpp.s
+MysqlClass.s: MysqlClass.cpp.s
 
-.PHONY : Mysql.s
+.PHONY : MysqlClass.s
 
 # target to generate assembly for a file
-Mysql.cpp.s:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Mysql.cpp.s
-.PHONY : Mysql.cpp.s
+MysqlClass.cpp.s:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/MysqlClass.cpp.s
+.PHONY : MysqlClass.cpp.s
 
 Mystr.o: Mystr.cpp.o
 
@@ -351,9 +351,9 @@ help:
 	@echo "... MyportScan.o"
 	@echo "... MyportScan.i"
 	@echo "... MyportScan.s"
-	@echo "... Mysql.o"
-	@echo "... Mysql.i"
-	@echo "... Mysql.s"
+	@echo "... MysqlClass.o"
+	@echo "... MysqlClass.i"
+	@echo "... MysqlClass.s"
 	@echo "... Mystr.o"
 	@echo "... Mystr.i"
 	@echo "... Mystr.s"
