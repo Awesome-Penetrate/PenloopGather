@@ -20,6 +20,7 @@
 #include "Mystr.h"
 #include "MyportScan.h"
 #include "http.h"
+#include "HttpClass.h"
 class ServerClass {
 public:
     ServerClass();
@@ -27,6 +28,7 @@ public:
 private:
     static void _signalHandler(int sig);
     bool _runDnsThread();
+    std::tuple<std::string,std::string,std::string,std::string> _copyThread(std::string host,std::string ip);
     std::string _readConfig(std::string fileName,std::string key);
     bool _loadSubDomain();
     bool _loadConfig(std::string fileName);

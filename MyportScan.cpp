@@ -1,32 +1,28 @@
 #include "MyportScan.h"
-#include "Mythread.h"
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-void MyportScan::_scanPort(void * Port) {
-    MyportScan * Scan = (MyportScan *)Port;
-    static auto _it = Scan->_portList.cbegin();
-    while(_it != Scan->_portList.cend()){
-        Scan->_portScanMutex.lock();
-        if(_it >= Scan->_portList.cend() || *_it == 0){
-            Scan->_portScanMutex.unlock();
-            break;
-        }
+
+void MyportScan::_scanPort() {
+    auto _it = _portList.begin();
+    while(_it != this->_portList.end()){
+        //Scan->_portScanMutex.lock();
         int port = *_it;
         ++_it;
-        Scan->_sock = socket(AF_INET,SOCK_STREAM,0);
+        std::cout << "[*] Scan port .. " << port << std::endl;
+        //Scan->_portScanMutex.unlock();
+
+        this->_sock = socket(AF_INET,SOCK_STREAM,0);
         struct timeval timeout = {1,0};
-        setsockopt(Scan->_sock,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout,sizeof(struct timeval));
-        setsockopt(Scan->_sock,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout,sizeof(struct timeval));
+        setsockopt(this->_sock,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout,sizeof(struct timeval));
+        setsockopt(this->_sock,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout,sizeof(struct timeval));
         sockaddr_in serverAddr;
         serverAddr.sin_port = htons(port);
-        serverAddr.sin_addr.s_addr = inet_addr(Scan->_hostName.c_str());
+        serverAddr.sin_addr.s_addr = inet_addr(this->_hostName.c_str());
         serverAddr.sin_family = AF_INET;
-        if(connect(Scan->_sock,(sockaddr *)&serverAddr, sizeof(serverAddr)) == 0){
-            Scan->_openList.push_back(port);
+        if(connect(this->_sock,(sockaddr *)&serverAddr, sizeof(serverAddr)) == 0){
+            this->_portScanMutex.lock();
+            std::cout << "[*] Open :" << port << std::endl;
+            this->_openList.push_back(port);
         }
-        close(Scan->_sock);
-        Scan->_portScanMutex.unlock();
+        close(this->_sock);
     }
 }
 
@@ -37,21 +33,24 @@ bool MyportScan::setHost(std::string hostname) {
 }
 
 bool MyportScan::addPort(int port) {
-    _portList.push_back(port);
+    _portList.emplace_back(port);
 }
 
 bool MyportScan::runThread(int threadNum) {
+    /*
     Mythread th;
     th.setThreads(threadNum);
     th.runThreads(this->_scanPort,(void *)this);
     th.setJoin();
+     */
+    this->_scanPort();
 }
 
 bool MyportScan::isOpen(int port) {
     int sock = socket(AF_INET,PF_INET,IPPROTO_TCP);
     struct timeval timeout = {2,0};
     setsockopt(sock,SOL_SOCKET,SO_SNDTIMEO,(char*)&timeout,sizeof(struct timeval));
-    sockaddr_in serverAddr;
+    struct sockaddr_in serverAddr;
     serverAddr.sin_port = htons(port);
     serverAddr.sin_addr.s_addr = inet_addr(_hostName.c_str());
     serverAddr.sin_family = AF_INET;

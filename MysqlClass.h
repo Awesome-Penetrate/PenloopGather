@@ -11,16 +11,13 @@
 class MysqlClass {
 public:
     bool debug=false;
-    bool connect(std::string host,std::string user,std::string pass,std::string database,short int port);
-    MYSQL_RES * select(std::string sql);
-    bool update(std::string sql);
+    bool connect(std::string host,std::string user,std::string pass,std::string database, unsigned short int port);
+    int select(std::string sql);
     std::string escapeString(std::string str);
     my_ulonglong insert(std::string tableName,std::vector<std::string>columns,std::vector<std::string>data);
     MYSQL_RES * exec(std::string sql);
     void close();
-private:
-    MYSQL * _mysqlPoint;
-    ~MysqlClass();
+    ~MysqlClass();MYSQL * _mysqlPoint;
 };
 
 

@@ -1,16 +1,15 @@
 //
 // Created by payloads on 18-3-5.
 //
-
 #ifndef NEWPRO_MYPORTSCAN_H
 #define NEWPRO_MYPORTSCAN_H
-
 #include <iostream>
 #include <vector>
 #include <mutex>
-
-
-extern std::mutex PortScanLook;
+#include "Mythread.h"
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 
 class MyportScan{
 
@@ -24,7 +23,7 @@ public:
     std::vector<uint16_t >_portList;
 private:
     bool isOpen(int port);
-    static void  _scanPort(void * MyPort);
+    void  _scanPort();
 
 private:
     int _sock;

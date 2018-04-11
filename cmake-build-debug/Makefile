@@ -123,6 +123,33 @@ PenloopGather/fast:
 	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/build
 .PHONY : PenloopGather/fast
 
+HttpClass.o: HttpClass.cpp.o
+
+.PHONY : HttpClass.o
+
+# target to build an object file
+HttpClass.cpp.o:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/HttpClass.cpp.o
+.PHONY : HttpClass.cpp.o
+
+HttpClass.i: HttpClass.cpp.i
+
+.PHONY : HttpClass.i
+
+# target to preprocess a source file
+HttpClass.cpp.i:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/HttpClass.cpp.i
+.PHONY : HttpClass.cpp.i
+
+HttpClass.s: HttpClass.cpp.s
+
+.PHONY : HttpClass.s
+
+# target to generate assembly for a file
+HttpClass.cpp.s:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/HttpClass.cpp.s
+.PHONY : HttpClass.cpp.s
+
 MyportScan.o: MyportScan.cpp.o
 
 .PHONY : MyportScan.o
@@ -231,32 +258,32 @@ Mythread.cpp.s:
 	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Mythread.cpp.s
 .PHONY : Mythread.cpp.s
 
-Server.o: Server.cpp.o
+ServerClass.o: ServerClass.cpp.o
 
-.PHONY : Server.o
+.PHONY : ServerClass.o
 
 # target to build an object file
-Server.cpp.o:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Server.cpp.o
-.PHONY : Server.cpp.o
+ServerClass.cpp.o:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ServerClass.cpp.o
+.PHONY : ServerClass.cpp.o
 
-Server.i: Server.cpp.i
+ServerClass.i: ServerClass.cpp.i
 
-.PHONY : Server.i
+.PHONY : ServerClass.i
 
 # target to preprocess a source file
-Server.cpp.i:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Server.cpp.i
-.PHONY : Server.cpp.i
+ServerClass.cpp.i:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ServerClass.cpp.i
+.PHONY : ServerClass.cpp.i
 
-Server.s: Server.cpp.s
+ServerClass.s: ServerClass.cpp.s
 
-.PHONY : Server.s
+.PHONY : ServerClass.s
 
 # target to generate assembly for a file
-Server.cpp.s:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/Server.cpp.s
-.PHONY : Server.cpp.s
+ServerClass.cpp.s:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ServerClass.cpp.s
+.PHONY : ServerClass.cpp.s
 
 dns.o: dns.cpp.o
 
@@ -348,6 +375,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... PenloopGather"
+	@echo "... HttpClass.o"
+	@echo "... HttpClass.i"
+	@echo "... HttpClass.s"
 	@echo "... MyportScan.o"
 	@echo "... MyportScan.i"
 	@echo "... MyportScan.s"
@@ -360,9 +390,9 @@ help:
 	@echo "... Mythread.o"
 	@echo "... Mythread.i"
 	@echo "... Mythread.s"
-	@echo "... Server.o"
-	@echo "... Server.i"
-	@echo "... Server.s"
+	@echo "... ServerClass.o"
+	@echo "... ServerClass.i"
+	@echo "... ServerClass.s"
 	@echo "... dns.o"
 	@echo "... dns.i"
 	@echo "... dns.s"

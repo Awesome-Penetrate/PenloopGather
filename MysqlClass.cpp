@@ -24,13 +24,15 @@
  * @param port
  * @return
  */
-bool MysqlClass::connect(std::string host, std::string user, std::string pass, std::string database, short int port) {
-    _mysqlPoint = NULL;
-    if(!mysql_real_connect(_mysqlPoint,host.c_str(),user.c_str(),pass.c_str(),database.c_str(),port,NULL,1)){
-        perror(mysql_error(_mysqlPoint));
-        return false;
+bool MysqlClass::connect(std::string host, std::string user, std::string pass, std::string database, unsigned short int port) {
+    _mysqlPoint= mysql_init(NULL);
+    _mysqlPoint = mysql_real_connect(_mysqlPoint,host.c_str(),user.c_str(),pass.c_str(),database.c_str(),0,NULL,0);
+    if(_mysqlPoint){
+        mysql_set_character_set(_mysqlPoint,"utf8");
+        return true;
     }
-    return true;
+    std::cout << mysql_error(_mysqlPoint) << std::endl;
+    return false;
 }
 
 
@@ -39,33 +41,27 @@ bool MysqlClass::connect(std::string host, std::string user, std::string pass, s
  * @param sql
  * @return
  */
-MYSQL_RES* MysqlClass::select(std::string sql) {
-    return exec(sql);
+int MysqlClass::select(std::string sql) {
+    printf("[*] SQL :  %s \n",sql.c_str());
+    return mysql_query(_mysqlPoint,sql.c_str());
 }
 
-
-/**
- *
- * @param sql
- * @return
- */
-MYSQL_RES* MysqlClass::exec(std::string sql) {
-    if(!mysql_query(_mysqlPoint,sql.c_str())){
+MYSQL_RES * MysqlClass::exec(std::string sql) {
+    if(mysql_query(_mysqlPoint,sql.c_str())){
+        //mysql_commit(_mysqlPoint);
+        return mysql_store_result(_mysqlPoint);
+    }else{
         if(debug)
-            perror(mysql_error(_mysqlPoint));
+            std::cout << mysql_error(_mysqlPoint) << std::endl;
         return NULL;
     }
-    mysql_commit(_mysqlPoint);
-    return mysql_store_result(_mysqlPoint);
 }
 
 
 my_ulonglong MysqlClass::insert(std::string tableName, std::vector<std::string> columns,
                                 std::vector<std::string> data) {
-    int code = 0;
-
     if(columns.size() != data.size() && mysql_debug){
-        std::cout << "column count number not eq data number" << std::endl;
+        std::cout << "[!] Column count number not eq data number" << std::endl;
         return 0;
     }
     std::string sql = "INSERT INTO "+tableName;
@@ -91,18 +87,15 @@ my_ulonglong MysqlClass::insert(std::string tableName, std::vector<std::string> 
         }
         sql+= "'"+escapeString(data[j])+"',";
     }
-    if((code = mysql_query(_mysqlPoint,sql.c_str())) != 0 && debug){
+    if(mysql_query(_mysqlPoint,sql.c_str()) != 0 && debug){
         std::cout << "[Error] :" << mysql_error(_mysqlPoint) << std::endl;
         std::cout << "[SQL] :" << sql << std::endl;
         return 0;
     }
 
-    mysql_commit(_mysqlPoint);
-
-    if(debug){
-        std::cout << "Insert ID:" << mysql_insert_id(_mysqlPoint) << std::endl;
-        std::cout <<"[+]SQL : " <<sql << std::endl;
-    }
+    //mysql_commit(_mysqlPoint);
+    std::cout << "[+] Insert ID:" << mysql_insert_id(_mysqlPoint) << std::endl;
+    std::cout <<"[+] SQL : " <<sql << std::endl;
     return mysql_insert_id(_mysqlPoint);
 }
 
@@ -114,13 +107,6 @@ std::string MysqlClass::escapeString(std::string str) {
     return realsql;
 }
 
-bool MysqlClass::update(std::string sql) {
-    if(exec(sql) == NULL){
-        perror("Update error ");
-        return false;
-    }
-    return true;
-}
 
 void MysqlClass::close() {
     mysql_close(_mysqlPoint);

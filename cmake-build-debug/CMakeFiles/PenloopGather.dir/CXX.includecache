@@ -8,9 +8,49 @@
 
 /home/payloads/CLionProjects/PenloopGather/GLOBAL.h
 
+/home/payloads/CLionProjects/PenloopGather/HttpClass.cpp
+HttpClass.h
+/home/payloads/CLionProjects/PenloopGather/HttpClass.h
+
+/home/payloads/CLionProjects/PenloopGather/HttpClass.h
+iostream
+-
+sstream
+-
+cctype
+-
+vector
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+openssl/crypto.h
+-
+openssl/ssl.h
+-
+openssl/err.h
+-
+openssl/rand.h
+-
+unistd.h
+-
+cstring
+-
+htmlcxx/html/ParserDom.h
+-
+
 /home/payloads/CLionProjects/PenloopGather/MyportScan.cpp
 MyportScan.h
 /home/payloads/CLionProjects/PenloopGather/MyportScan.h
+
+/home/payloads/CLionProjects/PenloopGather/MyportScan.h
+iostream
+-
+vector
+-
+mutex
+-
 Mythread.h
 /home/payloads/CLionProjects/PenloopGather/Mythread.h
 sys/socket.h
@@ -20,19 +60,11 @@ arpa/inet.h
 unistd.h
 -
 
-/home/payloads/CLionProjects/PenloopGather/MyportScan.h
-iostream
--
-vector
--
-mutex
--
+/home/payloads/CLionProjects/PenloopGather/MysqlClass.cpp
+MysqlClass.h
+/home/payloads/CLionProjects/PenloopGather/MysqlClass.h
 
-/home/payloads/CLionProjects/PenloopGather/Mysql.cpp
-Mysql.h
-/home/payloads/CLionProjects/PenloopGather/Mysql.h
-
-/home/payloads/CLionProjects/PenloopGather/Mysql.h
+/home/payloads/CLionProjects/PenloopGather/MysqlClass.h
 mysql/mysql.h
 -
 iostream
@@ -64,11 +96,11 @@ vector
 Mythread.h
 /home/payloads/CLionProjects/PenloopGather/Mythread.h
 
-/home/payloads/CLionProjects/PenloopGather/Server.cpp
-Server.h
-/home/payloads/CLionProjects/PenloopGather/Server.h
+/home/payloads/CLionProjects/PenloopGather/ServerClass.cpp
+ServerClass.h
+/home/payloads/CLionProjects/PenloopGather/ServerClass.h
 
-/home/payloads/CLionProjects/PenloopGather/Server.h
+/home/payloads/CLionProjects/PenloopGather/ServerClass.h
 sys/socket.h
 -
 arpa/inet.h
@@ -89,8 +121,8 @@ fstream
 -
 cstring
 -
-Mysql.h
-/home/payloads/CLionProjects/PenloopGather/Mysql.h
+MysqlClass.h
+/home/payloads/CLionProjects/PenloopGather/MysqlClass.h
 dns.h
 /home/payloads/CLionProjects/PenloopGather/dns.h
 cctype
@@ -101,6 +133,8 @@ MyportScan.h
 /home/payloads/CLionProjects/PenloopGather/MyportScan.h
 http.h
 /home/payloads/CLionProjects/PenloopGather/http.h
+HttpClass.h
+/home/payloads/CLionProjects/PenloopGather/HttpClass.h
 
 /home/payloads/CLionProjects/PenloopGather/dns.cpp
 dns.h
@@ -153,6 +187,8 @@ GLOBAL.h
 /home/payloads/CLionProjects/PenloopGather/GLOBAL.h
 
 /home/payloads/CLionProjects/PenloopGather/main.cpp
-Server.h
-/home/payloads/CLionProjects/PenloopGather/Server.h
+ServerClass.h
+/home/payloads/CLionProjects/PenloopGather/ServerClass.h
+HttpClass.h
+/home/payloads/CLionProjects/PenloopGather/HttpClass.h
 

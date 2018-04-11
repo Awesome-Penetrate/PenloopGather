@@ -155,7 +155,7 @@ std::string http::getTitle() {
     tree<htmlcxx::HTML::Node>::iterator end = dom.end();
     for(; it != end; ++it)
     {
-        std::cout << "[*]Tage Name :" << it->tagName() << std::endl;
+        //std::cout << "[*]Tage Name :" << it->tagName() << std::endl;
         if (it->tagName()=="title")
         {
             it++;

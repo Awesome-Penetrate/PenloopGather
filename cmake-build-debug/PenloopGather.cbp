@@ -87,6 +87,12 @@
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/GLOBAL.h">
 			<Option target="PenloopGather"/>
 		</Unit>
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/HttpClass.cpp">
+			<Option target="PenloopGather"/>
+		</Unit>
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/HttpClass.h">
+			<Option target="PenloopGather"/>
+		</Unit>
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/MyportScan.cpp">
 			<Option target="PenloopGather"/>
 		</Unit>
@@ -111,10 +117,10 @@
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/Mythread.h">
 			<Option target="PenloopGather"/>
 		</Unit>
-		<Unit filename="/home/payloads/CLionProjects/PenloopGather/Server.cpp">
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/ServerClass.cpp">
 			<Option target="PenloopGather"/>
 		</Unit>
-		<Unit filename="/home/payloads/CLionProjects/PenloopGather/Server.h">
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/ServerClass.h">
 			<Option target="PenloopGather"/>
 		</Unit>
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/dns.cpp">
