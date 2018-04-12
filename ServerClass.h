@@ -15,7 +15,7 @@
 #include <fstream>
 #include <cstring>
 #include "MysqlClass.h"
-#include "dns.h"
+#include "DnsClass.h"
 #include <cctype>
 #include "Mystr.h"
 #include "MyportScan.h"
@@ -39,6 +39,7 @@ private:
     int _createJob();
     void _getMySQL();
     void _saveResult();
+    std::vector<std::string> _dnsSubDomains;
     std::tuple<std::string,std::string,std::string,std::string> _getDomainInfo(std::string host,std::string ip);
 private:
     PlsConfig _Config;
@@ -57,7 +58,7 @@ private:
     char _fromClientBUFF[520];
     Pls * _clientData;
     std::vector<uint16_t >_portList;
-    std::vector<std::string> _dnsSubDomains;
+    //std::vector<std::string> _dnsSubDomains;
     std::vector<std::tuple<int,std::string,std::string>> _dnsResult;
 };
 

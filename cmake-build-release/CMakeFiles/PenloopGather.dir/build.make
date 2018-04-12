@@ -105,28 +105,28 @@ CMakeFiles/PenloopGather.dir/http.cpp.o.provides: CMakeFiles/PenloopGather.dir/h
 CMakeFiles/PenloopGather.dir/http.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/http.cpp.o
 
 
-CMakeFiles/PenloopGather.dir/dns.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
-CMakeFiles/PenloopGather.dir/dns.cpp.o: ../dns.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PenloopGather.dir/dns.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PenloopGather.dir/dns.cpp.o -c /home/payloads/CLionProjects/PenloopGather/dns.cpp
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.o: ../DnsClass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PenloopGather.dir/DnsClass.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PenloopGather.dir/DnsClass.cpp.o -c /home/payloads/CLionProjects/PenloopGather/DnsClass.cpp
 
-CMakeFiles/PenloopGather.dir/dns.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PenloopGather.dir/dns.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/payloads/CLionProjects/PenloopGather/dns.cpp > CMakeFiles/PenloopGather.dir/dns.cpp.i
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PenloopGather.dir/DnsClass.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/payloads/CLionProjects/PenloopGather/DnsClass.cpp > CMakeFiles/PenloopGather.dir/DnsClass.cpp.i
 
-CMakeFiles/PenloopGather.dir/dns.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PenloopGather.dir/dns.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/payloads/CLionProjects/PenloopGather/dns.cpp -o CMakeFiles/PenloopGather.dir/dns.cpp.s
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PenloopGather.dir/DnsClass.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/payloads/CLionProjects/PenloopGather/DnsClass.cpp -o CMakeFiles/PenloopGather.dir/DnsClass.cpp.s
 
-CMakeFiles/PenloopGather.dir/dns.cpp.o.requires:
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.requires:
 
-.PHONY : CMakeFiles/PenloopGather.dir/dns.cpp.o.requires
+.PHONY : CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.requires
 
-CMakeFiles/PenloopGather.dir/dns.cpp.o.provides: CMakeFiles/PenloopGather.dir/dns.cpp.o.requires
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/dns.cpp.o.provides.build
-.PHONY : CMakeFiles/PenloopGather.dir/dns.cpp.o.provides
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.provides: CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.requires
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.provides.build
+.PHONY : CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.provides
 
-CMakeFiles/PenloopGather.dir/dns.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/dns.cpp.o
+CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/DnsClass.cpp.o
 
 
 CMakeFiles/PenloopGather.dir/Mythread.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
@@ -273,33 +273,85 @@ CMakeFiles/PenloopGather.dir/HttpClass.cpp.o.provides: CMakeFiles/PenloopGather.
 CMakeFiles/PenloopGather.dir/HttpClass.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/HttpClass.cpp.o
 
 
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o: ../EmptyClass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o -c /home/payloads/CLionProjects/PenloopGather/EmptyClass.cpp
+
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PenloopGather.dir/EmptyClass.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/payloads/CLionProjects/PenloopGather/EmptyClass.cpp > CMakeFiles/PenloopGather.dir/EmptyClass.cpp.i
+
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PenloopGather.dir/EmptyClass.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/payloads/CLionProjects/PenloopGather/EmptyClass.cpp -o CMakeFiles/PenloopGather.dir/EmptyClass.cpp.s
+
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.requires:
+
+.PHONY : CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.requires
+
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.provides: CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.requires
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.provides.build
+.PHONY : CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.provides
+
+CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o
+
+
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o: CMakeFiles/PenloopGather.dir/flags.make
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o: ../ThreadClass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o -c /home/payloads/CLionProjects/PenloopGather/ThreadClass.cpp
+
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PenloopGather.dir/ThreadClass.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/payloads/CLionProjects/PenloopGather/ThreadClass.cpp > CMakeFiles/PenloopGather.dir/ThreadClass.cpp.i
+
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PenloopGather.dir/ThreadClass.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/payloads/CLionProjects/PenloopGather/ThreadClass.cpp -o CMakeFiles/PenloopGather.dir/ThreadClass.cpp.s
+
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.requires:
+
+.PHONY : CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.requires
+
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.provides: CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.requires
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.provides.build
+.PHONY : CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.provides
+
+CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.provides.build: CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o
+
+
 # Object files for target PenloopGather
 PenloopGather_OBJECTS = \
 "CMakeFiles/PenloopGather.dir/main.cpp.o" \
 "CMakeFiles/PenloopGather.dir/http.cpp.o" \
-"CMakeFiles/PenloopGather.dir/dns.cpp.o" \
+"CMakeFiles/PenloopGather.dir/DnsClass.cpp.o" \
 "CMakeFiles/PenloopGather.dir/Mythread.cpp.o" \
 "CMakeFiles/PenloopGather.dir/MyportScan.cpp.o" \
 "CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o" \
 "CMakeFiles/PenloopGather.dir/ServerClass.cpp.o" \
 "CMakeFiles/PenloopGather.dir/Mystr.cpp.o" \
-"CMakeFiles/PenloopGather.dir/HttpClass.cpp.o"
+"CMakeFiles/PenloopGather.dir/HttpClass.cpp.o" \
+"CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o" \
+"CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o"
 
 # External object files for target PenloopGather
 PenloopGather_EXTERNAL_OBJECTS =
 
 PenloopGather: CMakeFiles/PenloopGather.dir/main.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/http.cpp.o
-PenloopGather: CMakeFiles/PenloopGather.dir/dns.cpp.o
+PenloopGather: CMakeFiles/PenloopGather.dir/DnsClass.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/Mythread.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/MyportScan.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/ServerClass.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/Mystr.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/HttpClass.cpp.o
+PenloopGather: CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o
+PenloopGather: CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o
 PenloopGather: CMakeFiles/PenloopGather.dir/build.make
 PenloopGather: CMakeFiles/PenloopGather.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable PenloopGather"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/payloads/CLionProjects/PenloopGather/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable PenloopGather"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PenloopGather.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -309,13 +361,15 @@ CMakeFiles/PenloopGather.dir/build: PenloopGather
 
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/main.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/http.cpp.o.requires
-CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/dns.cpp.o.requires
+CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/DnsClass.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/Mythread.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/MyportScan.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/MysqlClass.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/ServerClass.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/Mystr.cpp.o.requires
 CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/HttpClass.cpp.o.requires
+CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o.requires
+CMakeFiles/PenloopGather.dir/requires: CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o.requires
 
 .PHONY : CMakeFiles/PenloopGather.dir/requires
 

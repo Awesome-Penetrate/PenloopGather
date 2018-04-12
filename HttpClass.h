@@ -17,6 +17,7 @@
 #include <openssl/rand.h>
 #include <unistd.h>
 #include <cstring>
+#include <exception>
 #include <htmlcxx/html/ParserDom.h>
 class HttpClass {
 

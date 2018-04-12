@@ -123,6 +123,60 @@ PenloopGather/fast:
 	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/build
 .PHONY : PenloopGather/fast
 
+DnsClass.o: DnsClass.cpp.o
+
+.PHONY : DnsClass.o
+
+# target to build an object file
+DnsClass.cpp.o:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/DnsClass.cpp.o
+.PHONY : DnsClass.cpp.o
+
+DnsClass.i: DnsClass.cpp.i
+
+.PHONY : DnsClass.i
+
+# target to preprocess a source file
+DnsClass.cpp.i:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/DnsClass.cpp.i
+.PHONY : DnsClass.cpp.i
+
+DnsClass.s: DnsClass.cpp.s
+
+.PHONY : DnsClass.s
+
+# target to generate assembly for a file
+DnsClass.cpp.s:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/DnsClass.cpp.s
+.PHONY : DnsClass.cpp.s
+
+EmptyClass.o: EmptyClass.cpp.o
+
+.PHONY : EmptyClass.o
+
+# target to build an object file
+EmptyClass.cpp.o:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/EmptyClass.cpp.o
+.PHONY : EmptyClass.cpp.o
+
+EmptyClass.i: EmptyClass.cpp.i
+
+.PHONY : EmptyClass.i
+
+# target to preprocess a source file
+EmptyClass.cpp.i:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/EmptyClass.cpp.i
+.PHONY : EmptyClass.cpp.i
+
+EmptyClass.s: EmptyClass.cpp.s
+
+.PHONY : EmptyClass.s
+
+# target to generate assembly for a file
+EmptyClass.cpp.s:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/EmptyClass.cpp.s
+.PHONY : EmptyClass.cpp.s
+
 HttpClass.o: HttpClass.cpp.o
 
 .PHONY : HttpClass.o
@@ -285,32 +339,32 @@ ServerClass.cpp.s:
 	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ServerClass.cpp.s
 .PHONY : ServerClass.cpp.s
 
-dns.o: dns.cpp.o
+ThreadClass.o: ThreadClass.cpp.o
 
-.PHONY : dns.o
+.PHONY : ThreadClass.o
 
 # target to build an object file
-dns.cpp.o:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/dns.cpp.o
-.PHONY : dns.cpp.o
+ThreadClass.cpp.o:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ThreadClass.cpp.o
+.PHONY : ThreadClass.cpp.o
 
-dns.i: dns.cpp.i
+ThreadClass.i: ThreadClass.cpp.i
 
-.PHONY : dns.i
+.PHONY : ThreadClass.i
 
 # target to preprocess a source file
-dns.cpp.i:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/dns.cpp.i
-.PHONY : dns.cpp.i
+ThreadClass.cpp.i:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ThreadClass.cpp.i
+.PHONY : ThreadClass.cpp.i
 
-dns.s: dns.cpp.s
+ThreadClass.s: ThreadClass.cpp.s
 
-.PHONY : dns.s
+.PHONY : ThreadClass.s
 
 # target to generate assembly for a file
-dns.cpp.s:
-	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/dns.cpp.s
-.PHONY : dns.cpp.s
+ThreadClass.cpp.s:
+	$(MAKE) -f CMakeFiles/PenloopGather.dir/build.make CMakeFiles/PenloopGather.dir/ThreadClass.cpp.s
+.PHONY : ThreadClass.cpp.s
 
 http.o: http.cpp.o
 
@@ -375,6 +429,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... PenloopGather"
+	@echo "... DnsClass.o"
+	@echo "... DnsClass.i"
+	@echo "... DnsClass.s"
+	@echo "... EmptyClass.o"
+	@echo "... EmptyClass.i"
+	@echo "... EmptyClass.s"
 	@echo "... HttpClass.o"
 	@echo "... HttpClass.i"
 	@echo "... HttpClass.s"
@@ -393,9 +453,9 @@ help:
 	@echo "... ServerClass.o"
 	@echo "... ServerClass.i"
 	@echo "... ServerClass.s"
-	@echo "... dns.o"
-	@echo "... dns.i"
-	@echo "... dns.s"
+	@echo "... ThreadClass.o"
+	@echo "... ThreadClass.i"
+	@echo "... ThreadClass.s"
 	@echo "... http.o"
 	@echo "... http.i"
 	@echo "... http.s"

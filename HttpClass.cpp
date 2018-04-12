@@ -6,6 +6,8 @@
 
 HttpClass::HttpClass() {
     _serverSock = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
+    struct timeval timeout = {2,0};
+    setsockopt(_serverSock,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout,sizeof(struct timeval));
 }
 
 void HttpClass::setHost(std::string url) {
@@ -47,12 +49,25 @@ bool HttpClass::request() {
     std::stringstream responseStream;
     char recvHeader[2000];
     memset(recvHeader,0,0);
-    while(int ret = recv(_serverSock,recvHeader, sizeof(recvHeader),0)){
+    int ret = 0;
+    while((ret = recv(_serverSock,recvHeader, sizeof(recvHeader),0))>0){
         recvHeader[ret] = '\0';
         responseStream<<recvHeader;
     }
     memset(recvHeader,0,0);
     std::string response = responseStream.str();
+    try{
+        if(response.empty()){
+            throw 1;
+        }
+    }catch (int i){
+        responseHeader = "NULL";
+        responseBody = "NULL";
+        title = "NULL";
+        close(_serverSock);
+        return false;
+    }
+
     unsigned long responseLine = response.find("\r\n\r\n");
     responseHeader = response.substr(0,responseLine);
     responseBody = response.substr(responseLine,response.npos);

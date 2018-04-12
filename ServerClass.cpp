@@ -83,41 +83,6 @@ bool ServerClass::startServer() {
         std::cout << "[*] Server is running ..." << std::endl;
         waitpid(pid,&status,0);
     }
-
-            /*
-            if((_clientSock = accept(_serverSock,(struct sockaddr *)&_clientAddr,&_clientSize))!=-1){
-                _clientPID = fork();
-                if(_clientPID == 0){
-
-                    close(_serverSock); // 关闭服务端Socket
-
-                    _loadSubDomain();   // 加载字典
-
-                    recv(_clientSock,_fromClientBUFF,500,0); // 接收数据
-
-                    _clientData = (Pls * )_fromClientBUFF;   // 格式化
-
-                    std::cout << "[*]Username :" << _clientData->username << std::endl;
-
-                    _authUser();  // 验证权限
-                    _createJob(); // 创建任务
-                    _runDnsThread(); // 执行任务
-                    //
-                    for (auto it = _dnsResult.begin(); it != _dnsResult.end(); it++) {
-                        std::cout <<"[" << std::get<0>(*it) << "] "<< std::get<1>(*it) << " => "<< std::get<2>(*it) << std::endl;
-                    }
-
-                    shutdown(_clientSock,SHUT_RDWR);
-                    exit(0);
-                }
-            }
-        }
-    }else{
-        int status;
-        std::cout << "[*]Server is running ..." << std::endl;
-        waitpid(pid,&status,0);
-    }
- */
 }
 
 /**
@@ -178,7 +143,6 @@ bool ServerClass::_runDnsThread() {
                 _jobID
         );
         //std::cout << "Query : " << callQueryStrem.str() << std::endl;
-        //printf("[*] CALL Query : %s \n",callSpAddDomain);
         if(mysql_query(_sql._mysqlPoint,callSpAddDomain)){
             mysql_commit(_sql._mysqlPoint);
         } else{
@@ -403,7 +367,12 @@ std::tuple<std::string,std::string,std::string,std::string> ServerClass::_getDom
     return _Result;
 }
 
-
+/**
+ * 端口扫描及HTTP服务发现
+ * @param host
+ * @param ip
+ * @return
+ */
 std::tuple<std::string,std::string,std::string,std::string> ServerClass::_copyThread(std::string host,
                                                                                      std::string ip) {
     std::string _title,_responseHeader,_openPorts;
@@ -419,6 +388,7 @@ std::tuple<std::string,std::string,std::string,std::string> ServerClass::_copyTh
     PortScan.addPort(8080);
     std::cout << "[+] Scan host :" << ip << std::endl;
     PortScan.runThread(_Config.threads);
+
     std::vector <uint16_t>_openList = PortScan.getOpenList();
     for (int i = 0; i < _openList.size(); ++i) {
         std::cout << "[*] " << host << ":" <<_openList[i] << " [Open] "<< std::endl;

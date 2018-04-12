@@ -2,7 +2,7 @@
 // Created by payloads on 18-2-27.
 //
 
-#include "dns.h"
+#include "DnsClass.h"
 
 
 dns::dns(){
@@ -256,13 +256,13 @@ int dns::setDnsServer(std::string  dnsServer) {
 
 
 void dns::requestDnsServer(struct DNS_HEADER * dns) {
-    int i = sizeof(_dest);
-    dnsSock = socket(AF_INET , SOCK_DGRAM , IPPROTO_UDP); //UDP packet for DNS queries
+    dnsSock = socket(AF_INET , SOCK_DGRAM , IPPROTO_UDP);
+    struct timeval timeout = {1,0};
+    setsockopt(dnsSock,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout,sizeof(struct timeval));
     _dest.sin_family = AF_INET;
     _dest.sin_port = htons(53);
-    _dest.sin_addr.s_addr = inet_addr(_dnsServer.c_str()); //dns servers
-    struct timeval timeout = {2,0};
-    setsockopt(dnsSock,SOL_SOCKET,SO_RCVTIMEO,(char*)&timeout,sizeof(struct timeval));
+    _dest.sin_addr.s_addr = inet_addr(_dnsServer.c_str());
+    int i = sizeof(_dest);
     int sendNum  = sendto(dnsSock,(char*)_buff,sizeof(struct DNS_HEADER) + (strlen((const char*)_qname)+1) + sizeof(struct QUESTION),0,(struct sockaddr*)&_dest,sizeof(_dest));
     if(sendNum < 0)
     {
@@ -271,24 +271,27 @@ void dns::requestDnsServer(struct DNS_HEADER * dns) {
     }
     if(recvfrom (dnsSock,(char*)_buff , 65536 , 0 , (struct sockaddr*)&_dest , (socklen_t*)&i ) < 0)
     {
-        perror("recvfrom failed");
+        //perror("recvfrom failed");
+        memset(_buff,0,0);
+        return;
     }
-    return;
 }
 
 
 void dns::threadRequest(void * DnsRequest) {
 
-    dns * Dns = (dns *)DnsRequest;
-    //Dns->mutex.lock();
-    static int threadLock = 0;
-    while(threadLock< Dns->_subdomain.size()){
-        Dns->_mutex.lock();
+    dns * Dns = this;
+
+    int threadLock = 0;
+    while(threadLock < Dns->_subdomain.size()){
+        //Dns->_mutex.lock();
         struct DNS_HEADER * dns = NULL;
         struct QUESTION *qinfo = NULL;
+
         Dns->_currentHostname.append(Dns->_subdomain[threadLock]);
         threadLock++;
         char hostBuff[200];
+        printf("[*] Try brute %s ...  -  %ld%% \n",Dns->_currentHostname.c_str(),threadLock/Dns->_currentHostname.size());
         sprintf(hostBuff,"%s.%s",Dns->_currentHostname.c_str(),Dns->_hostname);
         Dns->setDnsHeader(dns);
         Dns->setQname((unsigned char *)hostBuff);
@@ -323,32 +326,20 @@ void dns::threadRequest(void * DnsRequest) {
                 Dns->_reader = Dns->_reader + stop;
             }
         }
-
-        //printf("\nAnswer Records : %d \n" , ntohs(dns->ans_count) );
-
         for(int i=0; i < ntohs(dns->ans_count) ; i++)
         {
-            //printf("Name : %s ",answers[i].name);
-
             if( ntohs(Dns->_answers[i].resource->type) == T_A) //IPv4 address
             {
-
                 std::string ipAddress;
                 long *p;
                 p=(long*)Dns->_answers[i].rdata;
                 Dns->_a.sin_addr.s_addr=(*p); //working without ntohl
-                //printf(" %s has IPv4 address : %s",hostBuff,inet_ntoa(Dns->a.sin_addr));
+                printf("[*] %s has IPv4 address : %s \n",hostBuff,inet_ntoa(Dns->_a.sin_addr));
                 ipAddress=inet_ntoa(Dns->_a.sin_addr);
                 Dns->_aResult.emplace_back(std::make_tuple(threadLock,hostBuff,ipAddress));
             }
-
-            if(ntohs(Dns->_answers[i].resource->type)==5)
-            {
-                //Canonical name for an alias
-                //printf("has alias name : %s",Dns->answers[i].rdata);
-            }
-
         }
+
         close(Dns->dnsSock);
 
 
@@ -362,7 +353,7 @@ void dns::threadRequest(void * DnsRequest) {
         //Dns->_aResult.clear();
         memset(hostBuff,0,0);
         Dns->_currentHostname.clear();
-        Dns->_mutex.unlock();
+        //Dns->_mutex.unlock();
     }
     return;
 }
@@ -375,12 +366,14 @@ void dns::setHostname(std::string hostname) {
 
 void dns::runThread(int threadNum) {
     // void * host = (void *)this;
-    Mythread th;
+    /*Mythread th;
     th.setThreads(threadNum);
 
     th.runThreads(this->threadRequest,(void *)this);
 
     th.setJoin();
+     */
+    this->threadRequest(this);
     return;
 }
 

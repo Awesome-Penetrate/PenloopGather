@@ -84,6 +84,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/DnsClass.cpp">
+			<Option target="PenloopGather"/>
+		</Unit>
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/DnsClass.h">
+			<Option target="PenloopGather"/>
+		</Unit>
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/EmptyClass.cpp">
+			<Option target="PenloopGather"/>
+		</Unit>
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/EmptyClass.h">
+			<Option target="PenloopGather"/>
+		</Unit>
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/GLOBAL.h">
 			<Option target="PenloopGather"/>
 		</Unit>
@@ -123,10 +135,10 @@
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/ServerClass.h">
 			<Option target="PenloopGather"/>
 		</Unit>
-		<Unit filename="/home/payloads/CLionProjects/PenloopGather/dns.cpp">
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/ThreadClass.cpp">
 			<Option target="PenloopGather"/>
 		</Unit>
-		<Unit filename="/home/payloads/CLionProjects/PenloopGather/dns.h">
+		<Unit filename="/home/payloads/CLionProjects/PenloopGather/ThreadClass.h">
 			<Option target="PenloopGather"/>
 		</Unit>
 		<Unit filename="/home/payloads/CLionProjects/PenloopGather/http.cpp">

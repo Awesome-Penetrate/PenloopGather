@@ -6,6 +6,44 @@
 
 #IncludeRegexTransform: 
 
+/home/payloads/CLionProjects/PenloopGather/DnsClass.cpp
+DnsClass.h
+/home/payloads/CLionProjects/PenloopGather/DnsClass.h
+
+/home/payloads/CLionProjects/PenloopGather/DnsClass.h
+cstring
+-
+sys/socket.h
+-
+sys/select.h
+-
+cstdlib
+-
+arpa/inet.h
+-
+unistd.h
+-
+cstdio
+-
+iostream
+-
+map
+-
+vector
+-
+mutex
+-
+Mythread.h
+/home/payloads/CLionProjects/PenloopGather/Mythread.h
+
+/home/payloads/CLionProjects/PenloopGather/EmptyClass.cpp
+EmptyClass.h
+/home/payloads/CLionProjects/PenloopGather/EmptyClass.h
+
+/home/payloads/CLionProjects/PenloopGather/EmptyClass.h
+ThreadClass.h
+/home/payloads/CLionProjects/PenloopGather/ThreadClass.h
+
 /home/payloads/CLionProjects/PenloopGather/GLOBAL.h
 
 /home/payloads/CLionProjects/PenloopGather/HttpClass.cpp
@@ -36,6 +74,8 @@ openssl/rand.h
 unistd.h
 -
 cstring
+-
+exception
 -
 htmlcxx/html/ParserDom.h
 -
@@ -123,8 +163,8 @@ cstring
 -
 MysqlClass.h
 /home/payloads/CLionProjects/PenloopGather/MysqlClass.h
-dns.h
-/home/payloads/CLionProjects/PenloopGather/dns.h
+DnsClass.h
+/home/payloads/CLionProjects/PenloopGather/DnsClass.h
 cctype
 -
 Mystr.h
@@ -136,32 +176,20 @@ http.h
 HttpClass.h
 /home/payloads/CLionProjects/PenloopGather/HttpClass.h
 
-/home/payloads/CLionProjects/PenloopGather/dns.cpp
-dns.h
-/home/payloads/CLionProjects/PenloopGather/dns.h
+/home/payloads/CLionProjects/PenloopGather/ThreadClass.cpp
+ThreadClass.h
+/home/payloads/CLionProjects/PenloopGather/ThreadClass.h
 
-/home/payloads/CLionProjects/PenloopGather/dns.h
-cstring
--
-sys/socket.h
--
-cstdlib
--
-arpa/inet.h
--
-unistd.h
--
-cstdio
+/home/payloads/CLionProjects/PenloopGather/ThreadClass.h
+thread
 -
 iostream
 -
-map
+string
+-
+mutex
 -
 vector
--
-Mythread.h
-/home/payloads/CLionProjects/PenloopGather/Mythread.h
-mutex
 -
 
 /home/payloads/CLionProjects/PenloopGather/http.cpp
@@ -189,6 +217,4 @@ GLOBAL.h
 /home/payloads/CLionProjects/PenloopGather/main.cpp
 ServerClass.h
 /home/payloads/CLionProjects/PenloopGather/ServerClass.h
-HttpClass.h
-/home/payloads/CLionProjects/PenloopGather/HttpClass.h
 

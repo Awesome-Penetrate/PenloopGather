@@ -1,18 +1,34 @@
 #include "ServerClass.h"
-#include "HttpClass.h"
+
+
 int main(int argc,char * argv[]) {
 
 
     ServerClass MyServer;
     MyServer.startServer();
 
+
     /*
-     * HttpClass Http;
+    std::fstream ss;
+
+    ss.open("subnames.txt");
+    dns dnsRequest;
+    dnsRequest.setDnsServer("114.114.114.114");
+    dnsRequest.setHostname("baidu.com");
+    while(!ss.eof()){
+        std::string lin;
+        getline(ss,lin);
+        dnsRequest._subdomain.emplace_back(lin);
+    }
+
+    dnsRequest.runThread(1);
+     */
+/*
+    HttpClass Http;
     Http.setIP("115.182.41.160");
     Http.setHost("ccaa.kaoshi.open.com.cn");
     Http.setPort(80);
     Http.request();
-
     MyportScan portScan;
     portScan.setHost("192.168.3.7");
     /*
@@ -32,47 +48,26 @@ int main(int argc,char * argv[]) {
      */
 /*
     MyportScan portScan;
-    portScan.setHost("192.168.3.7");
-    portScan.addPort(135);
-    portScan.addPort(139);
-    portScan.addPort(139);
-    portScan.addPort(139);
-    portScan.addPort(445);
-    portScan.addPort(445);
-    portScan.addPort(445);
-    portScan.addPort(2869);
-    portScan.addPort(8080);
-    portScan.addPort(8080);
-    portScan.addPort(8080);
-    portScan.addPort(8080);
-    portScan.addPort(8080);
-    portScan.addPort(8080);
-    portScan.addPort(3389);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(6002);
-    portScan.addPort(7001);
-    portScan.addPort(7002);
-    portScan.addPort(11111);
-    portScan.addPort(11111);
-    portScan.addPort(11111);
-    portScan.addPort(11111);
-    portScan.addPort(49152);
+    portScan.setHost("192.168.30.245");
+    portScan.addPort(8081);
+    portScan.addPort(80);
+    portScan.addPort(3306);
     portScan.addPort(49153);
-    portScan.addPort(49153);
-    portScan.addPort(49153);
-    portScan.addPort(49153);
-    portScan.addPort(49154);
-    portScan.addPort(49159);
+    portScan.addPort(80);
+    portScan.addPort(3306);
     portScan.addPort(80);
     portScan.addPort(80);
     portScan.addPort(80);
+    portScan.addPort(3306);
+    portScan.addPort(80);
+    portScan.addPort(1111);
+    portScan.addPort(80);
+    portScan.addPort(3306);
+    portScan.addPort(445);
     portScan.runThread(10);
-    */
-
+/*
+    ThreadClass th;
+    th.setThreadNum(10);
+    th.runThread();
+*/
 }

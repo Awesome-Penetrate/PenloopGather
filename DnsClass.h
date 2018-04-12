@@ -7,6 +7,7 @@
 
 #include <cstring>
 #include <sys/socket.h>
+#include <sys/select.h>
 #include <cstdlib>
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -14,8 +15,8 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "Mythread.h"
 #include <mutex>
+#include "Mythread.h"
 extern std::mutex mu;
 #define T_A 1 //Ipv4 address
 #define T_NS 2 //Nameserver
@@ -89,7 +90,7 @@ public:
     ~dns();
     void setHostname(std::string hostname);
     int  setDnsServer(std::string  dnsServer);
-    static void threadRequest(void * hostname);
+    void threadRequest(void * hostname);
     void runThread(int threadNum);
     bool addSubdomain(std::string subdomainName);
     std::vector<std::tuple<int,std::string,std::string>> getResult();

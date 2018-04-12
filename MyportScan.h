@@ -22,15 +22,17 @@ public:
 public:
     std::vector<uint16_t >_portList;
 private:
-    bool isOpen(int port);
     void  _scanPort();
-
+    void run();
 private:
+    struct sockaddr_in serverAddr;
     int _sock;
-    int _it;
+    int _threadNum;
     std::string  _hostName;
     std::mutex _portScanMutex;
     std::vector <uint16_t>_openList;
+    std::vector<std::thread>_threadLists;
+    std::vector<uint16_t >::iterator it;
 
 };
 
