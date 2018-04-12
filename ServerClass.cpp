@@ -326,47 +326,6 @@ void ServerClass::_saveResult() {
 
 }
 
-    /**
-     * std::string IP地址
-     * std::string 开启端口
-     * std::string HTTP相应头
-     * std::string HTTP标题
-     */
-std::tuple<std::string,std::string,std::string,std::string> ServerClass::_getDomainInfo(std::string host,std::string ip) {
-
-    std::string _title,_responseHeader,_openPorts;
-
-    MyportScan PortScan;
-
-    PortScan.setHost(ip);
-
-    PortScan.addPort(80);
-
-    PortScan.addPort(8081);
-
-    PortScan.addPort(8080);
-    std::cout << "[+]Scan host :" << ip << std::endl;
-    PortScan.runThread(_Config.threads);
-    std::vector <uint16_t>_openList = PortScan.getOpenList();
-    for (int i = 0; i < _openList.size(); ++i) {
-        std::cout << "[*] " << host << ":" <<_openList[i] << " [Open] "<< std::endl;
-        host.insert(0,"http://");
-        host = host.replace(host.rfind('.'),1,"");
-        std::cout << "[*]URL :" << host << std::endl;
-        http HTTP_REQ(host,_openList[i]);
-        HTTP_REQ.getRequest();
-        std::cout <<"[*]Title : " <<  HTTP_REQ.getTitle() << std::endl;
-        _title = HTTP_REQ.getTitle();
-        _responseHeader = HTTP_REQ.getResponse();
-        _openPorts.append(std::to_string(_openList[i]));
-        _openPorts.append(",");
-        std::cout << HTTP_REQ.getResponse() << std::endl;
-        break;
-    }
-    auto _Result = std::make_tuple(host,_openPorts,_responseHeader,_title);
-    return _Result;
-}
-
 /**
  * 端口扫描及HTTP服务发现
  * @param host
