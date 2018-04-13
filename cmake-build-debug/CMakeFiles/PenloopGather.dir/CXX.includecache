@@ -165,10 +165,10 @@ MysqlClass.h
 /home/payloads/CLionProjects/PenloopGather/MysqlClass.h
 DnsClass.h
 /home/payloads/CLionProjects/PenloopGather/DnsClass.h
-cctype
--
 Mystr.h
 /home/payloads/CLionProjects/PenloopGather/Mystr.h
+cctype
+-
 MyportScan.h
 /home/payloads/CLionProjects/PenloopGather/MyportScan.h
 http.h

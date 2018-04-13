@@ -282,8 +282,9 @@ void dns::threadRequest(void * DnsRequest) {
 
     dns * Dns = this;
 
-    int threadLock = 0;
-    while(threadLock < Dns->_subdomain.size()){
+    long threadLock = 0;
+    long subdomainSize = Dns->_subdomain.size();
+    while(threadLock < subdomainSize){
         //Dns->_mutex.lock();
         struct DNS_HEADER * dns = NULL;
         struct QUESTION *qinfo = NULL;
@@ -291,7 +292,8 @@ void dns::threadRequest(void * DnsRequest) {
         Dns->_currentHostname.append(Dns->_subdomain[threadLock]);
         threadLock++;
         char hostBuff[200];
-        printf("[*] Try brute %s ...  -  %ld%% \n",Dns->_currentHostname.c_str(),threadLock/Dns->_currentHostname.size());
+        printf("[*] Try brute %s ...  -  %ld / %ld \r",Dns->_currentHostname.c_str(),threadLock,subdomainSize);
+        fflush(stdout);
         sprintf(hostBuff,"%s.%s",Dns->_currentHostname.c_str(),Dns->_hostname);
         Dns->setDnsHeader(dns);
         Dns->setQname((unsigned char *)hostBuff);
@@ -335,6 +337,7 @@ void dns::threadRequest(void * DnsRequest) {
                 p=(long*)Dns->_answers[i].rdata;
                 Dns->_a.sin_addr.s_addr=(*p); //working without ntohl
                 printf("[*] %s has IPv4 address : %s \n",hostBuff,inet_ntoa(Dns->_a.sin_addr));
+                fflush(stdout);
                 ipAddress=inet_ntoa(Dns->_a.sin_addr);
                 Dns->_aResult.emplace_back(std::make_tuple(threadLock,hostBuff,ipAddress));
             }

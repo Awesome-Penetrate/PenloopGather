@@ -16,8 +16,8 @@
 #include <cstring>
 #include "MysqlClass.h"
 #include "DnsClass.h"
-#include <cctype>
 #include "Mystr.h"
+#include <cctype>
 #include "MyportScan.h"
 #include "http.h"
 #include "HttpClass.h"
